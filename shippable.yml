@@ -1,0 +1,35 @@
+# Language setting
+language: node_js
+
+# Version number
+node_js:
+  - "0.12"
+
+env:
+  global:
+    - FOO=FUBU
+
+build:
+  pre_ci:
+    - docker build -t=shiphitchcock2test/docker-node:$BRANCH.$BUILD_NUMBER .
+
+  pre_ci_boot:
+    image_name: shiphitchcock2test/docker-node
+    image_tag: $BRANCH.$BUILD_NUMBER
+    pull: false
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+
+
+  ci:
+    - ps -eax
+    - ls -al
+   # - sleep 6m
+
+  post_ci:
+    - docker push shiphitchcock2test/docker-node:$BRANCH.$BUILD_NUMBER
+
+integrations:
+  hub:
+    - integrationName: ship-docker
+      type: docker
+      
