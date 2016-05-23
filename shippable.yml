@@ -17,8 +17,8 @@ build:
    # - sleep 6m
 
   post_ci:
-    - docker build -t=shiphitchcock2test/docker-node:$BRANCH.$BUILD_NUMBER .
-    - docker push shiphitchcock2test/docker-node:$BRANCH.$BUILD_NUMBER
+    - docker build -t=shiphitchcock2test/docker-node-test:$BRANCH.$BUILD_NUMBER .
+    - docker push shiphitchcock2test/docker-node-test:$BRANCH.$BUILD_NUMBER
 
 integrations:
   hub:
