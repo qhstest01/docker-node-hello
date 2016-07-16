@@ -1,5 +1,6 @@
 # Language setting
 language: node_js
+
 # Version number
 node_js:
   - "0.12"
@@ -7,11 +8,13 @@ node_js:
 env:
   global:
     - FOO=FUBU
+    - secure: sq6/PhYkFnYSAAgLzwqGMH+aK5ZjpSW/fwFDR7fQgjrF917wwdeeklIblL1dD7g7veE49bYtfM80WVU//dufL9C8Sf8PE+60qqHQxtwT03eriMzIt2ACIlEjnBhlM4slxk/VI5EJqe60Jwyox/VSoe+8WlyqA0R5bKp+f2YEP1zdw79INOBtzJzkKwneNjzu9NK38DpHmyUF+n7MX4HBixUg18iQrRFINjvWfGG/+EEMTKsXPxM7mVF7G01O5Fc+V40GrThHGkQBfDVZmTcyYAxe++s2ouImkpIP3flkjh3ujZK73e1FEMUZbre/POSnk6wvS6DbeVCF/DXuroANFA==
 
 build:
   ci:
     - ps -eax
     - ls -al
+    - echo $key1
    # - sleep 6m
 
   post_ci:
