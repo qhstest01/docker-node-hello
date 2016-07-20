@@ -15,6 +15,7 @@ build:
   ci:
     - ps -eax
     - ls -al
+    - npm install
    # - sleep 6m
 
   post_ci:
