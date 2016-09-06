@@ -12,6 +12,9 @@ env:
     - secure: sq6/PhYkFnYSAAgLzwqGMH+aK5ZjpSW/fwFDR7fQgjrF917wwdeeklIblL1dD7g7veE49bYtfM80WVU//dufL9C8Sf8PE+60qqHQxtwT03eriMzIt2ACIlEjnBhlM4slxk/VI5EJqe60Jwyox/VSoe+8WlyqA0R5bKp+f2YEP1zdw79INOBtzJzkKwneNjzu9NK38DpHmyUF+n7MX4HBixUg18iQrRFINjvWfGG/+EEMTKsXPxM7mVF7G01O5Fc+V40GrThHGkQBfDVZmTcyYAxe++s2ouImkpIP3flkjh3ujZK73e1FEMUZbre/POSnk6wvS6DbeVCF/DXuroANFA==
 
 build:
+  pre_ci:
+    - docker build -t=shiphitchcock2test/docker-node-test:$BRANCH.$BUILD_NUMBER .
+    
   ci:
     - ps -eax
     - ls -al
@@ -19,7 +22,7 @@ build:
    # - sleep 6m
 
   post_ci:
-    - docker build -t=shiphitchcock2test/docker-node-test:$BRANCH.$BUILD_NUMBER .
+    
     - docker push shiphitchcock2test/docker-node-test:$BRANCH.$BUILD_NUMBER
 
 integrations:
